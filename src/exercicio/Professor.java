@@ -5,10 +5,6 @@ public class Professor {
     private String nome;
     private int aulasMinistradas;
 
-    public int getAulasMinistradas() {
-        return aulasMinistradas;
-    }
-
     public String getDisciplina() {
         return disciplina;
     }
@@ -25,11 +21,18 @@ public class Professor {
         this.nome = nome;
     }
     
-    public Professor(String nome, String disciplina, int aulasMinistradas)
-    {
-      this.nome = nome;
-      this.disciplina = disciplina;
-      this.aulasMinistradas=aulasMinistradas;
+    public Professor(String nome, String disciplina){
+      if(!nome.isEmpty()) this.nome = nome;
+      if(!disciplina.isEmpty()) this.disciplina = disciplina;
+      aulasMinistradas = 0;
+    }
+    
+    public void ministrou(int aulas){
+        aulasMinistradas += aulas;
+    }
+    
+    public void novoMes(){
+      aulasMinistradas = 0;
     }
     
     public void ExibirDados(){
